@@ -37,6 +37,12 @@ build
 .env.test.local
 .env.production.local
 
+# API Keys - Never commit these files
+src/config/env.js
+.env.apikeys
+apikeys.js
+config.js
+
 # Testing
 /coverage
 
@@ -45,15 +51,6 @@ build
 
 # Misc
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# API Keys - Never commit these files
-.env.apikeys
-apikeys.js
-config.js
 
 # Cache
 .cache/

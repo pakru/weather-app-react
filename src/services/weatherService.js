@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { getMockCurrentWeather, getMockForecastData } from '../utils/mockData';
-
-const API_KEY = '95922cbf7c00c1dac35f5e6796984072';
+import { OPENWEATHER_API_KEY } from '../config/apiConfig';
 
 /**
  * Fetch weather data by coordinates
@@ -30,12 +29,12 @@ export const fetchWeatherDataByCoords = async (
   try {
     // Get current weather data by coordinates
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${OPENWEATHER_API_KEY}`
     );
     
     // Get 5-day forecast data by coordinates
     const forecastResponse = await axios.get(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${OPENWEATHER_API_KEY}`
     );
     
     setWeatherData({
@@ -84,12 +83,12 @@ export const fetchWeatherDataByCity = async (
   try {
     // Get current weather data by city name
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${OPENWEATHER_API_KEY}`
     );
     
     // Get 5-day forecast data by city name
     const forecastResponse = await axios.get(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=${OPENWEATHER_API_KEY}`
     );
     
     setWeatherData({
